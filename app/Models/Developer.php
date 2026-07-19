@@ -15,6 +15,10 @@ class Developer extends Authenticatable
         'password'
     ];
 
+    protected $hidden = [
+        'password',
+    ];
+
     public function projects()
     {
         return $this->belongsToMany(Project::class);
