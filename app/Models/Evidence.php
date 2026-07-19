@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Evidence extends Model
 {
     protected $fillable = [
-        'image_path'
+        'image_path',
     ];
 
     public function timeline()

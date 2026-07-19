@@ -12,7 +12,7 @@ class Developer extends Authenticatable
 
     protected $fillable = [
         'username',
-        'password'
+        'password',
     ];
 
     protected $hidden = [

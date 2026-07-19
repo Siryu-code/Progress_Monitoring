@@ -8,7 +8,8 @@ class Timeline extends Model
 {
     protected $fillable = [
         'title',
-        'description'
+        'description',
+        'developer_id',
     ];
 
     public function project()

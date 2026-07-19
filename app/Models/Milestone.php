@@ -8,7 +8,7 @@ class Milestone extends Model
 {
     protected $fillable = [
         'title',
-        'status'
+        'status',
     ];
 
     public function project()
