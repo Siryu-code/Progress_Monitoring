@@ -11,12 +11,12 @@ class Timeline extends Model
         'description'
     ];
 
-    public function projects()
+    public function project()
     {
         return $this->belongsTo(Project::class);
     }
 
-    public function developers()
+    public function developer()
     {
         return $this->belongsTo(Developer::class);
     }

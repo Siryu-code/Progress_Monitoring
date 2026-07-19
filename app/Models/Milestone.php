@@ -11,7 +11,7 @@ class Milestone extends Model
         'status'
     ];
 
-    public function projects()
+    public function project()
     {
         return $this->belongsTo(Project::class);
     }

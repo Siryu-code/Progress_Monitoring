@@ -10,7 +10,7 @@ class Evidence extends Model
         'image_path'
     ];
 
-    public function timelines()
+    public function timeline()
     {
         return $this->belongsTo(Timeline::class);
     }

@@ -8,7 +8,8 @@ class Project extends Model
 {
     protected $fillable = [
         'project_code',
-        'project_name'
+        'project_name',
+        'status'
     ];
 
     public function developers()
