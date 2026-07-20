@@ -53,7 +53,7 @@ class MilestoneController extends Controller
         }
 
         // Hitung ulang progress percentage untuk dikirim ke frontend
-        $progressPercentage = $totalMilestones > 0
+        $progress = $totalMilestones > 0
             ? round(($completedMilestones / $totalMilestones) * 100)
             : 0;
 
@@ -64,7 +64,7 @@ class MilestoneController extends Controller
                 'status' => $nextStatus,
             ],
             'project_status'      => $project->status,
-            'progress_percentage' => $progressPercentage,
+            'progress' => $progress,
         ], 200);
     }
 }

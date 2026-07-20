@@ -49,9 +49,14 @@ class ProjectController extends Controller
         $completedMilestones = $milestones->where('status', 2)->count();
 
         // Jaga-jaga kalau milestone masih kosong — hindari division by zero
-        $progressPercentage = $totalMilestones > 0
+        $progress = $totalMilestones > 0
             ? round(($completedMilestones / $totalMilestones) * 100)
             : 0;
+
+        // Ambil halaman pertama timelines, urut terbaru
+        $timelines = $project->timelines()
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
 
         // Status project dibaca langsung dari DB
         // Nanti MilestoneController yang akan update kolom ini saat progress 100%
@@ -62,8 +67,10 @@ class ProjectController extends Controller
                 'project_code' => $project->project_code,
                 'status'       => $project->status,
             ],
+            'progress'            => $progress,
             'milestones'          => $milestones,
-            'progress_percentage' => $progressPercentage,
+            'timelines'           => $timelines->items(),   // isi data halaman pertama
+            'next_page'           => $timelines->nextPageUrl() ? $timelines->currentPage() + 1 : null,
         ], 200);
     }
 }
